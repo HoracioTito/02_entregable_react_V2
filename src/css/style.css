@@ -1,0 +1,90 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    /* block-size: 0; */
+}
+
+body{
+    font-size: 14px;
+    color: #607d8b;
+
+}
+
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    height: 100vh;
+   /* background-image: url("../image/image_gif.gif"); */
+   background: url("../image/image_gif.gif") center center / 100% 100% no-repeat fixed;
+}
+    
+
+.card-weather{
+    padding: 30px;
+    margin: 0 auto;
+    width: 320px;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 5px 5px 3px darkslategrey;
+     /* height: 60vh; */
+    text-align: center;
+    opacity: 0.95;
+
+}
+.title{
+    padding: 0 0 15px;
+}
+
+.clime{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    margin: 20px 0 0 0 ;
+}
+
+.clime > div > img {
+    width: 100px;
+    height: 100px;
+    margin-top: -30px;
+    animation-name: example;
+    animation-duration: 10s ;
+    animation-iteration-count: infinite;
+}
+  
+p{
+    font-size: 1.4rem;
+    padding: 10px 0 20px 0;
+}
+
+.p-border{
+    padding: 2px;
+    font-size: 1.2rem;
+}
+
+.btn-temperature{
+    padding: 11px 26px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    background-color: #90caf9;
+    border: none;
+    box-shadow: 2px 2px 3px #414b4c;
+    margin: 22px 0 10px;
+    color: #546e7a;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    cursor: pointer;
+}
+   
+@keyframes example {
+    0%   {width: 100px;}
+    25%  {width: 10px;}
+    80%  {width: 100px;}
+    90%  {width: 100px;}
+    100%  {width: 100px;}
+  }
