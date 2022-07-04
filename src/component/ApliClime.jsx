@@ -11,6 +11,7 @@ const ApliClime = () => {
     /* 0=kelvin  1=celsius 2=Farnaeith */
     let [scaleValue , setScaleValue] = useState(0)
     let [newTemperature ,setNewTemperature] = useState(0)
+    let [icon ,setIcon] = useState(0)
 
 
 
@@ -23,12 +24,24 @@ const ApliClime = () => {
                let longitude = pos.coords.longitude;
 
                axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${keyApi}`)
-               .then(res => setInfoClima(res.data))
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+                    .then(res => { 
+                         setInfoClima(res.data)
+                         /* Recepcion  temperatura */
+                         setNewTemperature( (Math.trunc ((res.data.main?.temp - 273.15)*100)/100) + "  ºC")  
+                         /* set Icon */
+                         setIcon (`http://openweathermap.org/img/wn/${res.data.weather?.[0].icon}@2x.png`)
 
-                console.log(infoClima)
+                    })
+
+                
+                
+                // 
 
            }
-
+            console.log(infoClima)
             /* Geolocalizacion */
            navigator.geolocation.getCurrentPosition(success)  
 
@@ -36,7 +49,7 @@ const ApliClime = () => {
 
 
     /** Change scale temperature */
-  
+    // setNewTemperature( (Math.trunc ((infoClima.main?.temp - 273.15)*100)/100) + "  ºC")  
 
     const changeScale=()=>{
 
@@ -65,6 +78,7 @@ const ApliClime = () => {
     }
 
 
+    console.log(infoClima)
 
     return (
         <div className='card-weather'>
@@ -74,7 +88,7 @@ const ApliClime = () => {
             <h3> {infoClima.name} </h3>
 
             <div className='clime'>
-             <div><img src={`http://openweathermap.org/img/wn/${infoClima.weather?.[0].icon}@2x.png`} /></div>
+             <div><img src={icon} /></div>
              <div><h3>{infoClima.weather?.[0].description}</h3></div>
             </div>
  
