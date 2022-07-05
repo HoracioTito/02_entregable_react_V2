@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import  './css/style.css'
 import ApliClime from './component/ApliClime'
 
