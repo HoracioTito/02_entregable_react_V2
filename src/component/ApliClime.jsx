@@ -29,6 +29,7 @@ const ApliClime = () => {
                     })
                     .then(res => { 
                          setInfoClima(res.data)
+                         console.log(res.data)
                          /* Recepcion  temperatura */
                          setNewTemperature( (Math.trunc ((res.data.main?.temp - 273.15)*100)/100) + "  ºC")  
                          /* set Icon */
@@ -36,12 +37,8 @@ const ApliClime = () => {
 
                     })
 
-                
-                
-                // 
-
            }
-            console.log(infoClima)
+
             /* Geolocalizacion */
            navigator.geolocation.getCurrentPosition(success)  
 
@@ -78,7 +75,7 @@ const ApliClime = () => {
     }
 
 
-    console.log(infoClima)
+
 
     return (
         <div className='card-weather'>
